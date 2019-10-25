@@ -1,0 +1,56 @@
+package models;
+
+import java.sql.*;
+
+public class finance{
+			private Integer Sno;
+			private String Heading;
+			private String Detail;
+
+			public finance(){
+				
+			}
+			public finance(String Heading,String Detail){
+				this.Heading=Heading;
+				this.Detail=Detail;
+				
+			}
+			public boolean getNews(){
+				boolean flag = false;
+				try{
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con  = DriverManager.getConnection("jdbc:mysql://localhost:3306/news?user=root&password=12345");
+					String query = "select Heading , Detail from finance";
+					PreparedStatement pst = con.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					if(rs.next()){
+						
+						Heading= rs.getString(1);
+						Detail = rs.getString(2);
+						
+							
+						}
+						flag=true;
+						System.out.println("dddddd");
+					con.close();
+					flag = true;
+				}catch(ClassNotFoundException e){
+					e.printStackTrace();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+				return flag;
+	}
+	public String getHeading(){
+			return Heading;
+		}
+		public void setHeading(String Heading){
+			this.Heading=Heading;
+		}
+		public String getDetail(){
+			return Detail;
+		}
+		public void setDetail(String Detail){
+			this.Detail=Detail;
+		}
+}
