@@ -1,0 +1,4 @@
+There are number of jsp file it will run only when the tomcat server is installed and started otherwise you can rename it by .html file and take a look of html file.
+There is WEB-INF folder which contain main java classes in src folder.
+I have done the connectivity part in jsp file .
+It also contain css folder which contain one css folder which is link eith all the jsp files.
